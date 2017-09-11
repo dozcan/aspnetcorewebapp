@@ -1,0 +1,8 @@
+C:\core\webApp\webApp
+--output-path=obj\Release\netcoreapp2.0\
+--application-name=webApp
+--content-root=C:\core\webApp\webApp
+--file=C:\core\webApp\webApp\Views\Home\Index.cshtml
+--file=C:\core\webApp\webApp\Views\Shared\_Layout.cshtml
+--file=C:\core\webApp\webApp\Views\_ViewImports.cshtml
+--file=C:\core\webApp\webApp\Views\_ViewStart.cshtml

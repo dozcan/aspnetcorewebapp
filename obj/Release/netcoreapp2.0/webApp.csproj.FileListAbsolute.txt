@@ -1,0 +1,10 @@
+C:\core\webApp\webApp\bin\Release\netcoreapp2.0\webApp.deps.json
+C:\core\webApp\webApp\bin\Release\netcoreapp2.0\webApp.runtimeconfig.json
+C:\core\webApp\webApp\bin\Release\netcoreapp2.0\webApp.runtimeconfig.dev.json
+C:\core\webApp\webApp\bin\Release\netcoreapp2.0\webApp.dll
+C:\core\webApp\webApp\bin\Release\netcoreapp2.0\webApp.pdb
+C:\core\webApp\webApp\obj\Release\netcoreapp2.0\webApp.csproj.CoreCompileInputs.cache
+C:\core\webApp\webApp\obj\Release\netcoreapp2.0\webApp.AssemblyInfoInputs.cache
+C:\core\webApp\webApp\obj\Release\netcoreapp2.0\webApp.AssemblyInfo.cs
+C:\core\webApp\webApp\obj\Release\netcoreapp2.0\webApp.dll
+C:\core\webApp\webApp\obj\Release\netcoreapp2.0\webApp.pdb
