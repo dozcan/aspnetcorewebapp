@@ -6,33 +6,40 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using webApp.Models;
+using webApp.Models;    
 using Microsoft.Extensions.Logging;
+using Microsoft.EntityFrameworkCore;
 
 namespace webApp
 {
     public class Startup
     {
         private IConfiguration Configuration;
+
         public Startup(IHostingEnvironment env)
         {
             Configuration = new ConfigurationBuilder().SetBasePath(env.ContentRootPath).AddEnvironmentVariables().Build();
         }
 
+
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddSingleton<IConfiguration>(Configuration);
-            services.AddTransient<IRepository, DummyRepository>();
+            var host = Configuration["DBHOST"] ?? "localhost";
+            var port = Configuration["DBPORT"] ?? "3306";
+            var password = Configuration["DBPASSWORD"] ?? "mysecret"; services.AddDbContext<ProductDbContext>(options => options.UseMySql($"server={host};userid=root;pwd={password};" + $"port={port};database=products"));
+            services.AddSingleton<IConfiguration>(Configuration); services.AddTransient<IRepository, ProductRepository>();
             services.AddMvc();
         }
+        
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
         {
             loggerFactory.AddConsole();
             app.UseDeveloperExceptionPage();
             app.UseStatusCodePages();
             app.UseStaticFiles();
-            app.UseMvcWithDefaultRoute(); }
-        
+            app.UseMvcWithDefaultRoute();
+            SeedData.EnsurePopulated(app);
+        }
     }
 }
 
