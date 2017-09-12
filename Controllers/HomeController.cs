@@ -15,11 +15,13 @@ namespace webApp.Controllers
         private string message;
         public HomeController(IRepository repo, IConfiguration config)
         {
-            repository = repo; message = config["MESSAGE"] ?? "Essential Docker";
+            repository = repo;
+            message = $"Essential Docker ({config["HOSTNAME"]})";
         }
         public IActionResult Index()
         {
-            ViewBag.Message = message; return View(repository.Products);
+            ViewBag.Message = message;
+            return View(repository.Products);
         }
 
     }
