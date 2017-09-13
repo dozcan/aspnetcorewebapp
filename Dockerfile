@@ -1,6 +1,6 @@
 FROM microsoft/aspnetcore:2.0.0
 COPY dist /webApp
-COPY node_modules/wait_for_it.sh/bin/wait_for_it /webApp/wait_for_it.sh
+COPY node_modules/wait_for_it.sh/bin /webApp/wait_for_it.sh
 RUN chmod +x /webApp/wait-for-it.sh
 WORKDIR /webApp
 EXPOSE 80/tcp
