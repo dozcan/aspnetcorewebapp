@@ -26,7 +26,7 @@ namespace webApp
         {
             var host = Configuration["DBHOST"] ?? "localhost";
             var port = Configuration["DBPORT"] ?? "3306";
-            var password = Configuration["DBPASSWORD"] ?? "mysecret"; services.AddDbContext<ProductDbContext>(options => options.UseMySql($"server={host};userid=root;pwd={password};" + $"port={port};database=products"));
+            var password = Configuration["DBPASSWORD"] ?? "doga"; services.AddDbContext<ProductDbContext>(options => options.UseMySql($"server={host};userid=root;pwd={password};" + $"port={port};database=products"));
             services.AddSingleton<IConfiguration>(Configuration); services.AddTransient<IRepository, ProductRepository>();
             services.AddMvc();
         }
@@ -38,7 +38,7 @@ namespace webApp
             app.UseStatusCodePages();
             app.UseStaticFiles();
             app.UseMvcWithDefaultRoute();
-            SeedData.EnsurePopulated(app);
+            //SeedData.EnsurePopulated(app);
         }
     }
 }
