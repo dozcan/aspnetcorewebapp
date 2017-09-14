@@ -31,16 +31,16 @@ services:
    - mysql
 
  mvc:
-   build:
-    context: .
-    dockerfile: Dockerfile
-   networks:
-    - backend
-    - frontend
-   environment:
-    - DBHOST=mysql
-   depends_on:
-    - mysql
+  build:
+   context: .
+   dockerfile: Dockerfile
+  networks:
+   - backend
+   - frontend
+  environment:
+   - DBHOST=mysql
+  depends_on:
+   - mysql
 
  loadbalancer:
   image: dockercloud/haproxy:1.2.1
