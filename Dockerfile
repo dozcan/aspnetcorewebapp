@@ -1,8 +1,8 @@
 FROM microsoft/aspnetcore:2.0.0
 COPY dist /webApp
-COPY bin  /webApp/wait_for_it.sh
-RUN ["chmod", "+x", "webApp/wait_for_it.sh"]
+COPY bin/wait-for-it  /webApp/wait-for-it.sh
+RUN  chmod +x webApp/wait-for-it.sh
 WORKDIR /webApp
 EXPOSE 80/tcp
 ENV WAITHOST=mysql WAITPORT=3306
-ENTRYPOINT /webApp/wait_for_it.sh $WAITHOST:$WAITPORT --timeout=0 \ && exec dotnet ExampleApp.dll
+ENTRYPOINT ./wait-for-it.sh $WAITHOST:$WAITPORT --timeout=0 \ && exec dotnet ExampleApp.dll
