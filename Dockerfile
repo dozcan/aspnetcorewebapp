@@ -6,4 +6,4 @@ WORKDIR /webApp
 RUN chmod +x ./sh/wait-for-it.sh
 EXPOSE 80/tcp
 ENV WAITHOST=mysql WAITPORT=3306
-ENTRYPOINT ./sh/wait-for-it.sh $WAITHOST:$WAITPORT -s-timeout=0 \ && exec dotnet ExampleApp.dll
+ENTRYPOINT ./sh/wait-for-it.sh $WAITHOST:$WAITPORT \ && exec dotnet ExampleApp.dll
